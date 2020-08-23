@@ -1,5 +1,6 @@
-@import './generic/variables';
-@import './generic/custom';
+@import "./generic/variables";
+@import "./generic/placeholders";
+@import "./generic/custom";
 
 body {
   background-color: $page-color;

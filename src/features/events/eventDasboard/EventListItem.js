@@ -1,6 +1,7 @@
 import React from "react";
 import { Segment, Item, Icon, List, Button } from "semantic-ui-react";
 import EventListAttendee from "./EventListAttendee";
+import { Link } from "react-router-dom";
 const EventListItem = ({ event, selectEvent, deleteEvent }) => {
   const { hostPhotoURL, title, hostedBy, date, venue, description } = event;
   return (
@@ -37,10 +38,11 @@ const EventListItem = ({ event, selectEvent, deleteEvent }) => {
         />
 
         <Button
+          as={Link}
+          to={`/events/${event.id}`}
           color="teal"
           floated="right"
           content="View"
-          onClick={() => selectEvent(event)}
         />
       </Segment>
     </Segment.Group>
