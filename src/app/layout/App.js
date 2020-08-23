@@ -7,6 +7,7 @@ import { Route } from "react-router-dom";
 import EventDetailedPage from "../../features/events/eventDetailed/EventDetailedPage";
 import EventForm from "../../features/events/eventForm/EventForm";
 import HomePage from "../../features/home/HomePage";
+
 function App() {
   return (
     <>
