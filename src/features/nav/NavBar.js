@@ -3,7 +3,7 @@ import { Menu, Container, Button, Icon } from "semantic-ui-react";
 import { NavLink, useHistory } from "react-router-dom";
 import SignedOutMenu from "./SignedOutMenu";
 import SignedInMenu from "./SignedInMenu";
-const NavBar = ({ setformOpen }) => {
+const NavBar = () => {
   const history = useHistory();
   const [auth, setAuth] = useState(false);
 
@@ -28,7 +28,6 @@ const NavBar = ({ setformOpen }) => {
               positive
               inverted
               content="Create event"
-              onClick={() => setformOpen(true)}
             />
           </Menu.Item>
         )}
