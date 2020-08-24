@@ -1,13 +1,15 @@
 import React from "react";
 import { Segment, Item, Button, Header, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import { format } from "date-fns";
 
 const EventDetailedHeader = ({ event }) => {
+  const { title, category, date, hostedBy, id } = event;
   return (
     <Segment.Group>
       <Segment basic attached="top" style={{ padding: "0" }}>
         <Image
-          src={`/assets/categoryImages/${event.category}.jpg`}
+          src={`/assets/categoryImages/${category}.jpg`}
           fluid
           className="detailed-img"
         />
@@ -18,12 +20,12 @@ const EventDetailedHeader = ({ event }) => {
               <Item.Content>
                 <Header
                   size="huge"
-                  content={event.title}
+                  content={title}
                   style={{ color: "white" }}
                 />
-                <p>{event.date}</p>
+                <p>{format(date, "MMMM d, yyyy h:mm a")}</p>
                 <p>
-                  Hosted by <strong>{event.hostedBy}</strong>
+                  Hosted by <strong>{hostedBy}</strong>
                 </p>
               </Item.Content>
             </Item>
@@ -35,12 +37,7 @@ const EventDetailedHeader = ({ event }) => {
         <Button>Cancel My Place</Button>
         <Button color="teal">JOIN THIS EVENT</Button>
 
-        <Button
-          as={Link}
-          to={`/manage/${event.id}`}
-          color="orange"
-          floated="right"
-        >
+        <Button as={Link} to={`/manage/${id}`} color="orange" floated="right">
           Manage Event
         </Button>
       </Segment>

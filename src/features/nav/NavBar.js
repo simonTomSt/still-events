@@ -1,16 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Menu, Container, Button, Icon } from "semantic-ui-react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import SignedOutMenu from "./SignedOutMenu";
 import SignedInMenu from "./SignedInMenu";
+import { useSelector } from "react-redux";
 const NavBar = () => {
-  const history = useHistory();
-  const [auth, setAuth] = useState(false);
-
-  const handleSignOut = () => {
-    setAuth(false);
-    history.push("/");
-  };
+  const { auth } = useSelector((state) => state.auth);
 
   return (
     <Menu inverted fixed="top">
@@ -31,11 +26,7 @@ const NavBar = () => {
             />
           </Menu.Item>
         )}
-        {auth ? (
-          <SignedInMenu signOut={handleSignOut} />
-        ) : (
-          <SignedOutMenu setAuth={setAuth} />
-        )}
+        {auth ? <SignedInMenu /> : <SignedOutMenu />}
       </Container>
     </Menu>
   );

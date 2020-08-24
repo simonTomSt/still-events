@@ -6,7 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 import "./scss/main.scss";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import configureStore from "./app/api/store/configureStore";
+import configureStore from "./app/store/configureStore";
 import ScrollToTop from "./app/layout/scrollToTop";
 const store = configureStore();
 
