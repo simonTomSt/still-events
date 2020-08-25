@@ -25,7 +25,7 @@ const EventListItem = ({ event }) => {
       </Segment>
       <Segment>
         <Icon name="clock" /> {format(date, "MMMM d, yyyy h:mm a")}
-        <Icon name="marker" /> {venue}
+        <Icon name="marker" /> {venue.address}
       </Segment>
       <Segment secondary>
         <List horizontal>

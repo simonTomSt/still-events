@@ -23,7 +23,7 @@ const EventDetailedSidebar = ({ attendees }) => {
               />
               <Item.Content verticalAlign="middle">
                 <Item.Header as="h3">
-                  <span>{attendee.displayName}</span>
+                  <span>{attendee.name}</span>
                 </Item.Header>
               </Item.Content>
             </Item>
