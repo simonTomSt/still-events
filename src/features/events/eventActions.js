@@ -1,4 +1,26 @@
-import { CREATE_EVENT, UPDATE_EVENT, DELETE_EVENT } from "./eventConstants";
+import {
+  CREATE_EVENT,
+  UPDATE_EVENT,
+  DELETE_EVENT,
+  FETCH_EVENTS,
+} from "./eventConstants";
+import {
+  asyncActionStart,
+  asyncActionError,
+} from "../../app/asunc/asyncReducer";
+import { fetchSampleData } from "../../app/api/mockApi";
+
+export const loadEvents = (event) => {
+  return async function (dispatch) {
+    dispatch(asyncActionStart());
+    try {
+      const events = await fetchSampleData();
+      dispatch({ type: FETCH_EVENTS, payload: events });
+    } catch (error) {
+      dispatch(asyncActionError(error));
+    }
+  };
+};
 
 export const createEvent = (event) => {
   return {

@@ -8,12 +8,14 @@ import EventDetailedPage from "../../features/events/eventDetailed/EventDetailed
 import EventForm from "../../features/events/eventForm/EventForm";
 import HomePage from "../../features/home/HomePage";
 import ModalMenager from "../common/modals/ModalManager";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const { key } = useLocation();
   return (
     <>
       <ModalMenager />
+      <ToastContainer position="bottom-right" />
       <Route exact path="/" component={HomePage} />
       <Route
         path={"/(.+)"}
