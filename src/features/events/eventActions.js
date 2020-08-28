@@ -10,7 +10,7 @@ import {
 } from "../../app/asunc/asyncReducer";
 import { fetchSampleData } from "../../app/api/mockApi";
 
-export const loadEvents = (event) => {
+export const loadEvents = () => {
   return async function (dispatch) {
     dispatch(asyncActionStart());
     try {
@@ -22,6 +22,12 @@ export const loadEvents = (event) => {
   };
 };
 
+export const listenToEvents = (events) => {
+  return {
+    type: FETCH_EVENTS,
+    payload: events,
+  };
+};
 export const createEvent = (event) => {
   return {
     type: CREATE_EVENT,
